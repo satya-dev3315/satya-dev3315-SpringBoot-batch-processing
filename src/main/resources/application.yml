@@ -1,22 +1,22 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/file-upload
-    username: username
-    password: password
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/db
+    username: uname
+    password: pwd
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
   jpa:
     hibernate:
-      ddl-auto: create-drop
-    show-sql: false
-    properties:
-      hibernate:
-        format_sql: true
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: update
+    show-sql: true  
+
+#above initialize-schema: means whatever tables r requird to launch this job, those tables will b reated in db      
   batch:
     jdbc:
-      initialize-schema: ALWAYS
+      initialize-schema: always
+
+#disable job run at startup      
     job:
       enabled: false
-server:
-  port: 9090
+      
+
